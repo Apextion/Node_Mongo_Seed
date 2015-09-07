@@ -1,5 +1,4 @@
 var expect          = require("chai").expect,
-    assert          = require('assert'),
     card            = require('../models/card.js');
 
 describe('A Card in a Deck', function() {

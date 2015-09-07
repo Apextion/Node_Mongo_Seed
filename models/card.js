@@ -1,5 +1,5 @@
 module.exports = function() {
-    
+    // Dependencies
     var db          = require('../config/db'),
         mongoose    = require('mongoose');
         data        = require('../lib/sanitize.js');
@@ -18,7 +18,7 @@ module.exports = function() {
     
      _model = mongoose.model('cards', cardSchema);
 
-    // ADD 
+    // ADD ONE
     var _save = function(card, success, fail){
         var cleanData = data.sanitize(card);
         if(!cleanData) return false;
@@ -34,7 +34,7 @@ module.exports = function() {
         });
     },
     
-    // UPDATE
+    // UPDATE ONE
     _update = function(card,success,fail){
 
         var cleanData = data.sanitize(card);
@@ -50,7 +50,7 @@ module.exports = function() {
     
     },
     
-    // REMOVE
+    // REMOVE ONE
     _remove = function(card,success,fail){
         var cleanData = data.sanitize(card);
         if(!cleanData) return false;
@@ -63,6 +63,8 @@ module.exports = function() {
             }
         });
     },
+
+    // FIND One
     _findOne = function(card, success,fail){
         var cleanData = data.sanitize(card);
         if(!cleanData) return false;
@@ -90,11 +92,11 @@ module.exports = function() {
 // Publicly Available
 // ==========================================================================
     return {
-        schema :        cardSchema,
-        model :         _model,
-        add :           _save,
-        update :        _update,
-        remove :        _remove,
+        schema:        cardSchema,
+        model:         _model,
+        add:           _save,
+        update:        _update,
+        remove:        _remove,
         find:           _findOne,
         all:            _findAll
     };
