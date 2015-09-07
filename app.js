@@ -1,7 +1,8 @@
 // npm modules
-var express = require('express'),
-    app = express(),
-    exphbs = require('express-handlebars');
+var express 		= require('express'),
+    app 			= express(),
+    exphbs 			= require('express-handlebars'),
+    outputs 		= require('./lib/outputs.js');
 
 // View Config
 // =============================================================================
@@ -23,5 +24,5 @@ require('./routes/master')(app);
 
 // START THE SERVER
 // =============================================================================
-app.listen(port);
-console.log('server active on port', port);
+var server = app.listen(port);
+outputs.debug(port, 'server active on port', true);
