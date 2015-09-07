@@ -1,0 +1,17 @@
+{
+  "name": "node-docker",
+  "version": "0.1.0",
+  "description": "A Good Starting Point",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chris Chapman",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "express": "^4.13.3",
+    "express-handlebars": "^2.0.1"
+  }
+}
