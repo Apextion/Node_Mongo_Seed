@@ -25,4 +25,4 @@ require('./routes/master')(app);
 // START THE SERVER
 // =============================================================================
 var server = app.listen(port);
-outputs.debug(port, 'server active on port', true);
+outputs.debug(port, 'Server Status', true);
