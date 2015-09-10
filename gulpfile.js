@@ -9,6 +9,7 @@ var gulp            = require('gulp'),
     exec            = require('child_process').exec,
     uglify          = require('gulp-uglify'),
     gutil           = require('gulp-util'),
+    htmlmin         = require('gulp-html-minifier'),
     concat          = require('gulp-concat'),
     livereload      = require('gulp-livereload');
 
@@ -80,6 +81,14 @@ gulp.task('css', function () {
         .pipe(connect.reload());
 });
 
+gulp.task('htmlCompress', function () {
+    gulp.src('./assets/views/*.tpl')
+        .pipe(htmlmin({
+            collapseWhitespace: true
+        }))
+        .pipe(gulp.dest('./public/views'));
+});
+
 //compiling js files and uglifying them
 gulp.task('jsCompress', function () {
     gulp.src('./assets/js/**/*.js')
@@ -108,7 +117,7 @@ gulp.task('watch', function () {
     ],['build']);
 });
 
-gulp.task('build', ['css', 'jsCompress']);
+gulp.task('build', ['css', 'jsCompress', 'htmlCompress']);
 gulp.task('test', ['clearStart', 'mongod', 'runTests']);
 gulp.task('dev', ['clearStart', 'build', 'mongod', 'watch', 'development']);
 gulp.task('default', ['build']);
