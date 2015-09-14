@@ -1,1 +1,1 @@
-<p>Good day</p>
+    <gen-form data-payload="cardFormData" data-callback="actionAdd()"></gen-form>
